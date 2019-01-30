@@ -10,6 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.commands.*;
 
 /**
@@ -53,5 +54,24 @@ public class OI {
       else if (!aToggle)
         ArmButton.whileHeld(new ArmUp());
     }
+/*
+    runSubsystem(yButtonState, RobotMap.GRABBER_BUTTON_Y, yToggle, GrabberButton, new GrabberClose(), new GrabberOpen());
+    runSubsystem(aButtonState, RobotMap.ARM_BUTTON_A, aToggle, ArmButton, new ArmDown(), new ArmUp());
+*/
   }
+/*
+  public void runSubsystem(boolean buttonState, int buttonNumber, boolean toggle, Button buttonName,
+      Command firstCommand, Command alternateCommand) {
+
+    buttonState = controller.getRawButtonPressed(buttonNumber);
+    if (buttonState) {
+      toggle = !toggle;
+
+      if (toggle)
+        buttonName.whileHeld(firstCommand);
+      else if (!toggle)
+        buttonName.whileHeld(alternateCommand);
+    }
+  }
+*/
 }
