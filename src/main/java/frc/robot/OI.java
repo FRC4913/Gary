@@ -35,21 +35,23 @@ public class OI {
     aButtonState = controller.getAButtonPressed();
 
     // grabber
-    if (yButtonState)
+    if (yButtonState) {
       yToggle = !yToggle;
 
-    if (yButtonState && yToggle)
-      GrabberButton.whileHeld(new GrabberClose());
-    else if (yButtonState && !yToggle)
-      GrabberButton.whileHeld(new GrabberOpen());
+      if (yToggle)
+        GrabberButton.whileHeld(new GrabberClose());
+      else if (!yToggle)
+        GrabberButton.whileHeld(new GrabberOpen());
+    }
 
     // arm
-    if (aButtonState)
+    if (aButtonState) {
       aToggle = !aToggle;
 
-    if (aButtonState && aToggle)
-      ArmButton.whileHeld(new ArmDown());
-    else if (aButtonState && !aToggle)
-      ArmButton.whileHeld(new ArmUp());
+      if (aToggle)
+        ArmButton.whileHeld(new ArmDown());
+      else if (!aToggle)
+        ArmButton.whileHeld(new ArmUp());
+    }
   }
 }
