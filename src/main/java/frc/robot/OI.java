@@ -32,46 +32,26 @@ public class OI {
 
   public OI() {
 
-    yButtonState = controller.getYButtonPressed();
-    aButtonState = controller.getAButtonPressed();
+    yToggle = runSubsystem(RobotMap.GRABBER_BUTTON_Y, yToggle, GrabberButton, new GrabberClose(), new GrabberOpen());
+    aToggle = runSubsystem(RobotMap.ARM_BUTTON_A, aToggle, ArmButton, new ArmDown(), new ArmUp());
 
-    // grabber
-    if (yButtonState) {
-      yToggle = !yToggle;
-
-      if (yToggle)
-        GrabberButton.whileHeld(new GrabberClose());
-      else if (!yToggle)
-        GrabberButton.whileHeld(new GrabberOpen());
-    }
-
-    // arm
-    if (aButtonState) {
-      aToggle = !aToggle;
-
-      if (aToggle)
-        ArmButton.whileHeld(new ArmDown());
-      else if (!aToggle)
-        ArmButton.whileHeld(new ArmUp());
-    }
-/*
-    runSubsystem(yButtonState, RobotMap.GRABBER_BUTTON_Y, yToggle, GrabberButton, new GrabberClose(), new GrabberOpen());
-    runSubsystem(aButtonState, RobotMap.ARM_BUTTON_A, aToggle, ArmButton, new ArmDown(), new ArmUp());
-*/
   }
-/*
-  public void runSubsystem(boolean buttonState, int buttonNumber, boolean toggle, Button buttonName,
-      Command firstCommand, Command alternateCommand) {
 
-    buttonState = controller.getRawButtonPressed(buttonNumber);
-    if (buttonState) {
-      toggle = !toggle;
-
-      if (toggle)
+  /*
+   * Method is for running a subsystem by using a button to toggle between
+   * commands. Each time method runs, it returns a new value for the toggle
+   */
+  public boolean runSubsystem(int buttonNumber, boolean oldToggle, Button buttonName, Command firstCommand,
+      Command alternateCommand) {
+    boolean newToggle = false;// initialized value of newToggle doesn't matter
+    if (controller.getRawButtonPressed(buttonNumber)) {
+      newToggle = !oldToggle;
+      if (newToggle)
         buttonName.whileHeld(firstCommand);
-      else if (!toggle)
+      else if (!newToggle)
         buttonName.whileHeld(alternateCommand);
     }
+    return newToggle;
   }
-*/
+
 }
