@@ -19,7 +19,7 @@ public class GrabberSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  DoubleSolenoid grabber = new DoubleSolenoid(RobotMap.GRABBER_FORWARD,RobotMap.GRABBER_BACKWARD);//placeholders
+  DoubleSolenoid grabber = new DoubleSolenoid(RobotMap.FIRST_PCM_ID,RobotMap.GRABBER_FORWARD,RobotMap.GRABBER_BACKWARD);//placeholders
 
   @Override
   public void initDefaultCommand() {

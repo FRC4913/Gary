@@ -21,20 +21,22 @@ public class OI {
 
   public static XboxController controller = new XboxController(RobotMap.XBOX_CONTROLLER);
 
-  public Button GrabberButton = new JoystickButton(controller, RobotMap.GRABBER_BUTTON_Y);
-  public Button ArmButton = new JoystickButton(controller, RobotMap.ARM_BUTTON_A);
+  public Button GrabberButton = new JoystickButton(controller, 4);
+  public Button ArmButton = new JoystickButton(controller, 1);
+  public Button FrontLifterButton = new JoystickButton(controller, 8);
+  public Button RearLifterButton = new JoystickButton(controller, 7);
 
-  public boolean yButtonState;
-  public boolean yToggle;
-
-  public boolean aButtonState;
-  public boolean aToggle;
+  public boolean grabberToggle = false;
+  public boolean armToggle = false;
+  public boolean frontLifterToggle = false;
+  public boolean rearLifterToggle = false;
 
   public OI() {
 
-    yToggle = runSubsystem(RobotMap.GRABBER_BUTTON_Y, yToggle, GrabberButton, new GrabberClose(), new GrabberOpen());
-    aToggle = runSubsystem(RobotMap.ARM_BUTTON_A, aToggle, ArmButton, new ArmDown(), new ArmUp());
-
+    grabberToggle = runSubsystem(4, grabberToggle, GrabberButton, new GrabberClose(), new GrabberOpen());
+    armToggle = runSubsystem(1, armToggle, ArmButton, new ArmDown(), new ArmUp());
+    frontLifterToggle = runSubsystem(8, frontLifterToggle, FrontLifterButton, new FrontLifterUp(), new FrontLifterDown());
+    rearLifterToggle = runSubsystem(7, rearLifterToggle, RearLifterButton, new RearLifterUp(), new RearLifterDown());
   }
 
   /*
@@ -53,5 +55,4 @@ public class OI {
     }
     return newToggle;
   }
-
 }

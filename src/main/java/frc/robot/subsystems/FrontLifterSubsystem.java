@@ -19,7 +19,7 @@ public class FrontLifterSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  DoubleSolenoid frontlifter = new DoubleSolenoid(RobotMap.LIFTER_FRONT_FORWARD,RobotMap.LIFTER_FRONT_BACKWARD);//placeholders
+  DoubleSolenoid frontlifter = new DoubleSolenoid(RobotMap.FIRST_PCM_ID,RobotMap.FRONT_LIFTER_FORWARD,RobotMap.FRONT_LIFTER_BACKWARD);//placeholders
 
   @Override
   public void initDefaultCommand() {

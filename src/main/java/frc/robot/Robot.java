@@ -34,6 +34,7 @@ public class Robot extends TimedRobot {
   public static final GrabberSubsystem grabberSub = new GrabberSubsystem();
   public static final FrontLifterSubsystem frontLifterSub = new FrontLifterSubsystem();
   public static final RearLifterSubsystem rearLifterSub = new RearLifterSubsystem();
+  public static final PusherSubsystem pushSub = new PusherSubsystem();
 
 
   /**

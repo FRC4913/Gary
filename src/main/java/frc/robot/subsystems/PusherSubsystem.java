@@ -8,18 +8,17 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 
 import frc.robot.RobotMap;
 /**
  * An example subsystem. You can replace me with your own Subsystem.
  */
-public class RearLifterSubsystem extends Subsystem {
+public class PusherSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  DoubleSolenoid rearLifter = new DoubleSolenoid(RobotMap.FIRST_PCM_ID,RobotMap.REAR_LIFTER_FORWARD,RobotMap.REAR_LIFTER_BACKWARD);//placeholders
+  DoubleSolenoid pusher = new DoubleSolenoid(RobotMap.SECOND_PCM_ID,RobotMap.PUSHER_FORWARD,RobotMap.PUSHER_BACKWARD);//placeholders
 
   @Override
   public void initDefaultCommand() {
@@ -28,15 +27,15 @@ public class RearLifterSubsystem extends Subsystem {
     //setDefaultCommand(new Drive());
   }
 
-  public void Up(){
-    rearLifter.set(DoubleSolenoid.Value.kForward);
+  public void Push(){
+    pusher.set(DoubleSolenoid.Value.kForward);
   }
 
-  public void Down(){
-    rearLifter.set(DoubleSolenoid.Value.kReverse);
+  public void Pull(){
+    pusher.set(DoubleSolenoid.Value.kReverse);
   }
 
   public void Stop(){
-    rearLifter.set(DoubleSolenoid.Value.kOff);
+    pusher.set(DoubleSolenoid.Value.kOff);
   }
 }
