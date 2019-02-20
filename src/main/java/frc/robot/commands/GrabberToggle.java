@@ -9,26 +9,39 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.*;
 //import frc.robot.Robot;
-import static frc.robot.Robot.pusherSub;
+import static frc.robot.Robot.grabberSub;
 
 /**
  * An example command. You can replace me with your own command.
  */
-public class PusherPush extends Command {
-    public PusherPush() {
+public class GrabberToggle extends Command {
+    Command GrabberOpen;
+    Command GrabberClose;
+    boolean toggle = true;
+
+    public GrabberToggle(Command a, Command b) {
         // Use requires() here to declare subsystem dependencies
-        requires(pusherSub);
+        requires(grabberSub);
+        GrabberOpen = a;
+        GrabberClose = b;
     }
 
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        pusherSub.Push();
+        if (toggle){
+            // grabberSub.Open(); method 3
+            GrabberOpen.start();
+        }
+        else
+            GrabberClose.start(); // method 4
+        toggle = !toggle;
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -40,7 +53,7 @@ public class PusherPush extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
-        pusherSub.Stop();
+        grabberSub.Stop();
     }
 
     // Called when another command which requires one or more of the same

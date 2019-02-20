@@ -8,7 +8,6 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 
 import frc.robot.RobotMap;
@@ -16,10 +15,10 @@ import frc.robot.RobotMap;
  * An example subsystem. You can replace me with your own Subsystem.
  */
 public class GrabberSubsystem extends Subsystem {
-  // Put methods for controlling this subsystem
+  // Put methods for controlli ng this subsystem
   // here. Call these from Commands.
 
-  DoubleSolenoid grabber = new DoubleSolenoid(RobotMap.FIRST_PCM_ID,RobotMap.GRABBER_FORWARD,RobotMap.GRABBER_BACKWARD);//placeholders
+  DoubleSolenoid grabber = new DoubleSolenoid(RobotMap.SECOND_PCM_ID,RobotMap.GRABBER_FORWARD,RobotMap.GRABBER_BACKWARD);//placeholders
 
   @Override
   public void initDefaultCommand() {

@@ -29,32 +29,25 @@ public class RobotMap {
   public static int REAR_LEFT_MOTOR_ID = 3;
   public static int REAR_RIGHT_MOTOR_ID = 4;
 
-  public static int FIRST_PCM_ID = 9;
-  public static int SECOND_PCM_ID = 10;
+  public static int FIRST_PCM_ID = 0;
+  public static int SECOND_PCM_ID = 9;
 
   public static int XBOX_CONTROLLER = 0;
 
-  // solenoid ports
+  // first PCM0000
+  public static int ARM_FORWARD = 6;
+  public static int ARM_BACKWARD = 7;
+
+  public static int FRONT_LIFTER_FORWARD = 0;
+  public static int FRONT_LIFTER_BACKWARD = 1;
+
+  public static int REAR_LIFTER_FORWARD = 2;
+  public static int REAR_LIFTER_BACKWARD = 3;
+
+  public static int PUSHER_FORWARD = 4;
+  public static int PUSHER_BACKWARD = 5;
+
+  // second PCM
   public static int GRABBER_FORWARD = 0;
   public static int GRABBER_BACKWARD = 1;
-  // 1 cylinder
-
-  public static int ARM_FORWARD = 2;
-  public static int ARM_BACKWARD = 3;
-  // 2 cylinders
-
-  public static int FRONT_LIFTER_FORWARD = 4;
-  public static int FRONT_LIFTER_BACKWARD = 5;
-  // 2 cylinders
-
-  public static int REAR_LIFTER_FORWARD = 6;
-  public static int REAR_LIFTER_BACKWARD = 7;
-  // 1 cylinder
-
-  public static int PUSHER_FORWARD = 8;
-  public static int PUSHER_BACKWARD = 9;
-
-
-
-
 }

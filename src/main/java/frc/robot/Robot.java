@@ -34,7 +34,7 @@ public class Robot extends TimedRobot {
   public static final GrabberSubsystem grabberSub = new GrabberSubsystem();
   public static final FrontLifterSubsystem frontLifterSub = new FrontLifterSubsystem();
   public static final RearLifterSubsystem rearLifterSub = new RearLifterSubsystem();
-  public static final PusherSubsystem pushSub = new PusherSubsystem();
+  public static final PusherSubsystem pusherSub = new PusherSubsystem();
 
 
   /**
@@ -47,7 +47,9 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", new Drive());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
-    CameraServer.getInstance().startAutomaticCapture();
+    CameraServer.getInstance().startAutomaticCapture(0);
+    CameraServer.getInstance().startAutomaticCapture(1);
+
   }
 
   /**

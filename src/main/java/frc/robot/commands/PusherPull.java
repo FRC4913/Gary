@@ -9,7 +9,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.*;
 //import frc.robot.Robot;
-import static frc.robot.Robot.pushSub;
+import static frc.robot.Robot.pusherSub;
 
 /**
  * An example command. You can replace me with your own command.
@@ -17,7 +17,7 @@ import static frc.robot.Robot.pushSub;
 public class PusherPull extends Command {
     public PusherPull() {
         // Use requires() here to declare subsystem dependencies
-        requires(pushSub);
+        requires(pusherSub);
     }
 
     // Called just before this Command runs the first time
@@ -28,7 +28,7 @@ public class PusherPull extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        pushSub.Pull();
+        pusherSub.Pull();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -40,7 +40,7 @@ public class PusherPull extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
-        pushSub.Stop();
+        pusherSub.Stop();
     }
 
     // Called when another command which requires one or more of the same

@@ -14,21 +14,32 @@ import static frc.robot.Robot.pusherSub;
 /**
  * An example command. You can replace me with your own command.
  */
-public class PusherPush extends Command {
-    public PusherPush() {
+public class PusherToggle extends Command {
+    Command PusherPull;
+    Command PusherPush;
+    boolean toggle = true;
+
+    public PusherToggle(Command a, Command b) {
         // Use requires() here to declare subsystem dependencies
         requires(pusherSub);
+        PusherPull = a;
+        PusherPush = b;
     }
 
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        pusherSub.Push();
+        if (toggle)
+            PusherPull.start();
+        else
+            PusherPush.start();
+        toggle = !toggle;
     }
 
     // Make this return true when this Command no longer needs to run execute()
