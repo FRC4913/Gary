@@ -8,6 +8,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -28,6 +29,7 @@ public class Robot extends TimedRobot {
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
+  UsbCamera camera;
 
   public static final DriveSubsystem driveSub = new DriveSubsystem();
   public static final ArmSubsystem armSub = new ArmSubsystem();
@@ -35,7 +37,6 @@ public class Robot extends TimedRobot {
   public static final FrontLifterSubsystem frontLifterSub = new FrontLifterSubsystem();
   public static final RearLifterSubsystem rearLifterSub = new RearLifterSubsystem();
   public static final PusherSubsystem pusherSub = new PusherSubsystem();
-
 
   /**
    * This function is run when the robot is first started up and should be used
@@ -50,6 +51,20 @@ public class Robot extends TimedRobot {
     CameraServer.getInstance().startAutomaticCapture(0);
     CameraServer.getInstance().startAutomaticCapture(1);
 
+    // camera = CameraServer.getInstance().startAutomaticCapture(0);
+    // camera.setResolution(360, 270);
+    // camera.setFPS(15);
+
+    SmartDashboard.putData("GrabberOpen", new GrabberOpen());
+    SmartDashboard.putData("GrabberClose", new GrabberClose());
+    SmartDashboard.putData("PusherPush", new PusherPush());
+    SmartDashboard.putData("PusherPull", new PusherPull());
+    SmartDashboard.putData("ArmUp", new ArmUp());
+    SmartDashboard.putData("ArmDown", new ArmDown());
+    SmartDashboard.putData("FrontLifterUp", new FrontLifterUp());
+    SmartDashboard.putData("FrontLifterDown", new FrontLifterDown());
+    SmartDashboard.putData("RearLifterUp", new RearLifterUp());
+    SmartDashboard.putData("RearLifterDown", new RearLifterDown());
   }
 
   /**

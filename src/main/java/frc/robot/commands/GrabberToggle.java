@@ -19,6 +19,10 @@ public class GrabberToggle extends Command {
     Command GrabberClose;
     boolean toggle = true;
 
+    public GrabberToggle() {
+
+    }
+
     public GrabberToggle(Command a, Command b) {
         // Use requires() here to declare subsystem dependencies
         requires(grabberSub);
@@ -35,13 +39,13 @@ public class GrabberToggle extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        if (toggle){
-            // grabberSub.Open(); method 3
-            GrabberOpen.start();
-        }
-        else
+        if (toggle) {
+            GrabberOpen.start(); // method 4
+            // grabberSub.Open(); // method 3
+        } else {
             GrabberClose.start(); // method 4
-        toggle = !toggle;
+            // grabberSub.close();
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -53,6 +57,11 @@ public class GrabberToggle extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        if (toggle)
+            System.out.println("GrabberOpen");
+        else
+            System.out.println("GrabberClose");
+        toggle = !toggle;
         grabberSub.Stop();
     }
 

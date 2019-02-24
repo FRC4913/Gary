@@ -10,7 +10,6 @@ package frc.robot;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.commands.*;
 
 /**
@@ -21,11 +20,20 @@ public class OI {
 
   public static XboxController controller = new XboxController(RobotMap.XBOX_CONTROLLER);
 
-  public Button GrabberButton = new JoystickButton(controller, 4); //Y
-  public Button ArmButton = new JoystickButton(controller, 1); //A
-  public Button PusherButton = new JoystickButton(controller, 2); //B
+  // public Button GrabberButton = new JoystickButton(controller, 4); //Y
+  // public Button ArmButton = new JoystickButton(controller, 1); //A
+  // public Button PusherButton = new JoystickButton(controller, 2); //B
+  
   public Button FrontLifterButton = new JoystickButton(controller, 8);
   public Button RearLifterButton = new JoystickButton(controller, 7);
+
+  // method 5 
+  public Button GrabberOpenButton = new JoystickButton(controller, 2);
+  public Button GrabberCloseButton = new JoystickButton(controller, 3);
+  public Button ArmUpButton = new JoystickButton(controller, 5);
+  public Button ArmDownButton = new JoystickButton(controller, 6);
+  public Button PusherPullButton = new JoystickButton(controller, 1);
+  public Button PusherPushButton = new JoystickButton(controller, 4);
 
   // method 1
   // public boolean grabberToggle = false;
@@ -53,11 +61,20 @@ public class OI {
     // GrabberButton.toggleWhenPressed(new GrabberClose());
 
     // method 3&4
-    GrabberButton.whenPressed(new GrabberToggle(new GrabberOpen(), new GrabberClose()));
-    ArmButton.whenPressed(new ArmToggle(new ArmUp(), new ArmDown()));
-    PusherButton.whenPressed(new PusherToggle(new PusherPull(), new PusherPull()));
+    // GrabberButton.whenPressed(new GrabberToggle(new GrabberOpen(), new GrabberClose()));
+    // GrabberButton.whenPressed(new GrabberOpen()); // 3
+    // ArmButton.whenPressed(new ArmToggle(new ArmUp(), new ArmDown()));
+    // PusherButton.whenPressed(new PusherToggle(new PusherPull(), new PusherPull()));
     FrontLifterButton.whileActive(new FrontLifterToggle(new FrontLifterUp(), new FrontLifterDown()));
     RearLifterButton.whileHeld(new RearLifterToggle(new RearLifterUp(), new RearLifterDown()));
+
+    // method 5
+    GrabberOpenButton.whenPressed(new GrabberOpen());
+    GrabberCloseButton.whenPressed(new GrabberClose());
+    ArmUpButton.whenPressed(new ArmUp());
+    ArmDownButton.whenPressed(new ArmDown());
+    PusherPullButton.whenPressed(new PusherPull());
+    PusherPushButton.whenPressed(new PusherPull());    
   }
 
   /*
