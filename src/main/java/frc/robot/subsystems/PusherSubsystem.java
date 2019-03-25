@@ -18,7 +18,7 @@ public class PusherSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  DoubleSolenoid pusher = new DoubleSolenoid(RobotMap.FIRST_PCM_ID,RobotMap.PUSHER_FORWARD,RobotMap.PUSHER_BACKWARD);//placeholders
+  DoubleSolenoid pusher = new DoubleSolenoid(RobotMap.SECOND_PCM_ID,RobotMap.PUSHER_FORWARD,RobotMap.PUSHER_BACKWARD);//placeholders
 
   @Override
   public void initDefaultCommand() {

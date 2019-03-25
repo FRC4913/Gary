@@ -18,13 +18,14 @@ public class GrabberSubsystem extends Subsystem {
   // Put methods for controlli ng this subsystem
   // here. Call these from Commands.
 
-  DoubleSolenoid grabber = new DoubleSolenoid(RobotMap.SECOND_PCM_ID,RobotMap.GRABBER_FORWARD,RobotMap.GRABBER_BACKWARD);//placeholders
+  DoubleSolenoid grabber = new DoubleSolenoid(RobotMap.FIRST_PCM_ID,RobotMap.GRABBER_FORWARD,RobotMap.GRABBER_BACKWARD);//placeholders
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
     //setDefaultCommand(new Drive());
+    grabber.set(DoubleSolenoid.Value.kReverse);
   }
 
   public void Open(){

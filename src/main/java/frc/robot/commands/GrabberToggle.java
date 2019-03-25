@@ -61,6 +61,7 @@ public class GrabberToggle extends Command {
             System.out.println("GrabberOpen");
         else
             System.out.println("GrabberClose");
+        
         toggle = !toggle;
         grabberSub.Stop();
     }

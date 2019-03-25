@@ -20,14 +20,15 @@ public class OI {
 
   public static XboxController controller = new XboxController(RobotMap.XBOX_CONTROLLER);
 
-  // public Button GrabberButton = new JoystickButton(controller, 4); //Y
-  // public Button ArmButton = new JoystickButton(controller, 1); //A
-  // public Button PusherButton = new JoystickButton(controller, 2); //B
-  
+  // method 3
+  // public Button GrabberButton = new JoystickButton(controller, 4); // Y
+  // public Button ArmButton = new JoystickButton(controller, 1); // A
+  // public Button PusherButton = new JoystickButton(controller, 2); // B
+
   public Button FrontLifterButton = new JoystickButton(controller, 8);
   public Button RearLifterButton = new JoystickButton(controller, 7);
 
-  // method 5 
+  // method 5
   public Button GrabberOpenButton = new JoystickButton(controller, 2);
   public Button GrabberCloseButton = new JoystickButton(controller, 3);
   public Button ArmUpButton = new JoystickButton(controller, 5);
@@ -60,13 +61,16 @@ public class OI {
     // GrabberButton.whenPressed(new GrabberOpen());
     // GrabberButton.toggleWhenPressed(new GrabberClose());
 
-    // method 3&4
+    // method 4
     // GrabberButton.whenPressed(new GrabberToggle(new GrabberOpen(), new GrabberClose()));
-    // GrabberButton.whenPressed(new GrabberOpen()); // 3
     // ArmButton.whenPressed(new ArmToggle(new ArmUp(), new ArmDown()));
-    // PusherButton.whenPressed(new PusherToggle(new PusherPull(), new PusherPull()));
+    // PusherButton.whenPressed(new PusherToggle(new PusherPull(), new PusherPush()));
+
     FrontLifterButton.whileActive(new FrontLifterToggle(new FrontLifterUp(), new FrontLifterDown()));
     RearLifterButton.whileHeld(new RearLifterToggle(new RearLifterUp(), new RearLifterDown()));
+
+    // method 3
+    // GrabberButton.whenPressed(new GrabberOpen());
 
     // method 5
     GrabberOpenButton.whenPressed(new GrabberOpen());
@@ -74,7 +78,7 @@ public class OI {
     ArmUpButton.whenPressed(new ArmUp());
     ArmDownButton.whenPressed(new ArmDown());
     PusherPullButton.whenPressed(new PusherPull());
-    PusherPushButton.whenPressed(new PusherPull());    
+    PusherPushButton.whenPressed(new PusherPush());
   }
 
   /*

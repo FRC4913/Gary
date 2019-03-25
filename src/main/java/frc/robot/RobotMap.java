@@ -34,7 +34,7 @@ public class RobotMap {
 
   public static int XBOX_CONTROLLER = 0;
 
-  // first PCM0000
+  // first PCM
   public static int ARM_FORWARD = 6;
   public static int ARM_BACKWARD = 7;
 
@@ -44,10 +44,10 @@ public class RobotMap {
   public static int REAR_LIFTER_FORWARD = 2;
   public static int REAR_LIFTER_BACKWARD = 3;
 
-  public static int PUSHER_FORWARD = 4;
-  public static int PUSHER_BACKWARD = 5;
+  public static int PUSHER_FORWARD = 0;
+  public static int PUSHER_BACKWARD = 1;
 
   // second PCM
-  public static int GRABBER_FORWARD = 0;
-  public static int GRABBER_BACKWARD = 1;
+  public static int GRABBER_FORWARD = 5;
+  public static int GRABBER_BACKWARD = 4;
 }
